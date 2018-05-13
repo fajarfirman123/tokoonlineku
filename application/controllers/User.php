@@ -30,6 +30,20 @@ class User extends CI_Controller
 			'level' => 1);
 
 		$this->Dataku->submitData($data);
-		$this->load->view("welcome_message");
+		redirect('user');
 	}
+	public function index(){
+		// $this->load->model('Dataku');
+
+		$dt['tbuser']=$this->Dataku->gets();
+
+		$this->load->view('table' , $dt);
+	}
+	public function add(){}
+	public function del($id){
+		$this->Dataku->del($id);
+		redirect('user');
+	}
+	public function edit($id){}
+	public function detail($id){}
 }
